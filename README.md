@@ -64,10 +64,10 @@ npm run api
 ```json
 [
   {
-	"id": 1,
-	"type": "CEO",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "id": 1,
+    "type": "CEO",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
   }
 ]
 
@@ -90,16 +90,16 @@ npm run api
 ```json
 [
   {
-	"id": 1,
-	"type": "CEO",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "id": 1,
+    "type": "CEO",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
   },
   {
-	"id": 2,
-	"type": "STUDENT",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "id": 2,
+    "type": "STUDENT",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
   }
 ]
 
@@ -122,10 +122,10 @@ npm run api
 ```json
 [
   {
-	"id": 1,
-	"type": "CEO",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "id": 1,
+    "type": "CEO",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
   }
 ]
 
@@ -159,10 +159,10 @@ npm run api
 ```json
 [
   {
-	"id": 1,
-	"type": "STUDENT",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "id": 1,
+    "type": "STUDENT",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
   }
 ]
 
@@ -185,7 +185,7 @@ npm run api
 ```json
 [
   {
-	  "message": "Role 1 deleted !"
+    "message": "Role 1 deleted !"
   }
 ]
 
@@ -220,9 +220,9 @@ npm run api
 [
   {
     "name": "Lorem Ipsun",
-	"active": true,
-	"email": "lorem@ipsun.com",
-	"role": 1
+    "active": true,
+    "email": "lorem@ipsun.com",
+    "role": 1
   }
 ]
   ```
@@ -232,12 +232,12 @@ npm run api
 ```json
 [
   {
-  "name": "Lorem Ipsun",
-	"active": true,
-	"email": "lorem@ipsun.com",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"role": 1
+    "name": "Lorem Ipsun",
+    "active": true,
+    "email": "lorem@ipsun.com",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "role": 1
   }
 ]
 
@@ -262,20 +262,20 @@ npm run api
   {
     "id": 1,
     "name": "Lorem Ipsun",
-	"active": true,
-	"email": "lorem@ipsun.com",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"role": 1
+    "active": true,
+    "email": "lorem@ipsun.com",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "role": 1
   },
   {
     "id": 2,
     "name": "John Doe",
-	"active": true,
-	"email": "john@doe.com",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"role": 1
+    "active": true,
+    "email": "john@doe.com",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "role": 1
   }
 ]
 
@@ -298,13 +298,13 @@ npm run api
 ```json
 [
   {
-  "id": 2,
-  "name": "John Doe",
-	"active": true,
-	"email": "john@doe.com",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"role": 1
+    "id": 2,
+    "name": "John Doe",
+    "active": true,
+    "email": "john@doe.com",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "role": 1
   }
 ]
 
@@ -338,13 +338,13 @@ npm run api
 ```json
 [
   {
-  "id": 2,
-  "name": "John Doe",
-	"active": true,
-	"email": "john@doe.com",
-	"createdAt": "XXXX-XX-XXT00:00:00.000Z",
-	"updatedAt": "XXXX-XX-XXT00:00:00.000Z",
-	"role": 3
+    "id": 2,
+    "name": "John Doe",
+    "active": true,
+    "email": "john@doe.com",
+    "createdAt": "XXXX-XX-XXT00:00:00.000Z",
+    "updatedAt": "XXXX-XX-XXT00:00:00.000Z",
+    "role": 3
   }
 ]
 
@@ -367,7 +367,7 @@ npm run api
 ```json
 [
   {
-	  "message": "User 2 deleted !"
+    "message": "User 2 deleted !"
   }
 ]
 
