@@ -8,6 +8,13 @@
 <h3>Create your own Database and use GraphQL Playground to fetch it !</h3>
 <h3>Perfect for those who are starting using GraphQL projects</h3>
 
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | Class With GraphQL
+| :label: Tecnologias | javascript, node.js, express, graphql, postgresql
+| :rocket: URL         | https://financial-rest-app.herokuapp.com/
+| :fire: Desafio     | https://www.alura.com.br/challenges/back-end-4?host=https://cursos.alura.com.br
+
 <h3>Tecnologies and Frameworks</h3>
 <img src="https://nodejs.org/static/images/logo.svg#vitrinedev" alt="Node.js">
 <ul>
