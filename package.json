@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "graphql": "nodemon -e js,json,graphql src/index.js",
-    "api": "nodemon -e js,json,graphql api/index.js"
+    "api": "nodemon -e js,json,graphql api/index.js",
+    "swagger-autogen": "node swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -24,5 +25,9 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.25.3",
     "sequelize-cli": "^6.5.2"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.5.0"
   }
 }
