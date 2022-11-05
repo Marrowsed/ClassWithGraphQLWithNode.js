@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Role, {
         foreignKey: 'role'
       })
+      User.hasMany(models.Class, {
+        foreignKey: 'teacher_id'
+      })
+      User.hasMany(models.Registry, {
+        foreignKey: 'student_id'
+      })
     }
   }
   User.init({
