@@ -378,9 +378,11 @@ npm run api
 ```
 
 <h3>GraphQL</h3>
+
 ```shell
 npm run graphql
 ```
+
 Then GraphQL'll be running in <a>http://localhost:4000</a>
 
 <h2>Be welcome to change anything in your code !</h2>
