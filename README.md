@@ -12,8 +12,6 @@
 | -------------  | --- |
 | :sparkles: Nome        | Class With GraphQL
 | :label: Tecnologias | javascript, node.js, express, graphql, postgresql
-| :rocket: URL         | https://financial-rest-app.herokuapp.com/
-| :fire: Desafio     | https://www.alura.com.br/challenges/back-end-4?host=https://cursos.alura.com.br
 
 <h3>Tecnologies and Frameworks</h3>
 <img src="https://nodejs.org/static/images/logo.svg#vitrinedev" alt="Node.js">
