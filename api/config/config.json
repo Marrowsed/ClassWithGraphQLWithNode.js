@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "P@nd@0110",
+    "username": "postgres", // I used postgres
+    "password": "YOUR_PASSWORD",
     "database": "graphql",
-    "host": "host.docker.internal",
-    "dialect": "postgres"
+    "host": "YOUR_HOST",
+    "dialect": "postgres" // or another DB
   },
   "test": {
     "username": "root",
