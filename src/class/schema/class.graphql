@@ -1,0 +1,63 @@
+const { gql } = require('apollo-server')
+
+const classSchema = gql `
+    scalar DateTime
+    type Class {
+        id: ID!
+        description: String!
+        time: String!
+        seats: Int
+        initial: DateTime
+        teacher_id: User!
+    }
+
+    input ClassInput {
+        description: String
+        time: ClassTime
+        seats: Int
+        initial: DateTime
+        teacher_id: Int       
+    }
+
+    enum ClassTime {
+        MORNING
+        EVENING
+        NIGHT
+    }
+
+    type Query {
+        classes: [Class]
+        classesId(id: ID!): Class
+    }
+
+    type Mutation {
+        addClass(class: ClassInput): createdMessage!
+        updateClass(id: ID!, class: ClassInput): updateMessage!
+        deleteClass(id: ID!): deleteMessage!
+    }
+
+    interface customMessage {
+        code: Int!
+        message: String!
+    }
+
+    type deleteMessage implements customMessage {
+        code: Int!
+        message: String!
+    }
+
+    type updateMessage implements customMessage {
+        code: Int!
+        message: String!
+        class: Class!
+    }
+
+    type createdMessage implements customMessage {
+        code: Int!
+        message: String!
+        class: Class!
+    }
+
+
+`
+module.exports = classSchema

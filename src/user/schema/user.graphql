@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 const userSchema = gql `
     scalar DateTime
     type User {
+        id: ID!
         name: String!
         active: Boolean!
         email: String
