@@ -117,7 +117,7 @@ dist
 .dynamodb/
 
 #PostgreSQL File
-.api/config
+api/config/config.json
 
 # TernJS port file
 .tern-port
