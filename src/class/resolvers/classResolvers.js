@@ -18,7 +18,7 @@ const classResolver = {
         classesId: (_, {id}, {dataSources }) => dataSources.classesAPI.getClassesId(id),
     },
     Mutation: {
-        addClass: (_, {classes}, {dataSources }) => dataSources.classesAPI.postClasses(classes),
+        addClass: (_, classes, {dataSources }) => dataSources.classesAPI.postClasses(classes),
         updateClass: (_, newData, {dataSources }) => dataSources.classesAPI.updateClasses(newData),
         deleteClass:(_, {id}, {dataSources }) => dataSources.classesAPI.deleteClasses(id),
         

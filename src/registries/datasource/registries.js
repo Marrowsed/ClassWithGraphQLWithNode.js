@@ -6,15 +6,15 @@ class RegistriesAPI extends RESTDataSource {
         this.baseURL = 'http://localhost:3000';
         this.deleteMessage = {
           code: 204,
-          message: "Class deleted !"
+          message: "Registry deleted !"
         }
         this.updateMessage = {
           code: 200,
-          message: "Class Updated !"
+          message: "Registry Updated !"
         }
         this.createdMessage = {
           code: 201,
-          message: "Class Created !"
+          message: "Registry Created !"
         }
         this.errorMessage = {
           code: 400,
@@ -22,34 +22,33 @@ class RegistriesAPI extends RESTDataSource {
         }
     }
 
-    /*
-  async getClasses() {
-    const classes = await this.get(`/classes`);
-    return classes.map(async classes => ({
-      id: classes.id,
-      description: classes.description,
-      time: classes.time,
-      seats: classes.seats,
-      initial: classes.initial
+
+  async getRegistry() {
+    const regis = await this.get(`/registries`);
+    return regis.map(async reg => ({
+      id: reg.id,
+      status: reg.status,
+      class_id: reg.class_id,
+      student_id: reg.student_id
     }))
   }
 
   async getClassesId(id) {
-    const classes = await this.get(`/classes/${id}`)
-    return classes
+    const regis = await this.get(`/registries/${id}`)
+    return regis
   }
 
-   async postClasses(classes) {
-    await this.post('/classes', {body: {...classes, role: role[0].id}})
+   async postRegistries(regis) {
+    console.log(regis.registry)
+    await this.post('/registries', {body: {...regis.registry}})
     return ({
       ...this.createdMessage,
-      classes: {
-        ...classes,
-        role: role[0]
+      registry: {
+        ...regis.registry
       },
     })
   }
-
+      /*
   async updateClasses(newData) {
     await this.put(`/classes/${newData.id}`, {body: {...newData.classes, role:role[0].id}})
     return ({

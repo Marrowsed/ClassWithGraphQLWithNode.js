@@ -1,16 +1,14 @@
-const {GraphQLScalarType } = require('graphql')
-
 const registryResolver = {
     StatusType: {
         CONFIRMED: "CONFIRMED",
         CANCELLED: "CANCELLED",
     },
     Query: {
-        //classes: (_, __, {dataSources }) => dataSources.registriesAPI.getClasses(),
-        //classesId: (_, {id}, {dataSources }) => dataSources.registriesAPI.getClassesId(id),
+        registries: (_, __, {dataSources }) => dataSources.registriesAPI.getRegistry(),
+        registriesId: (_, {id}, {dataSources }) => dataSources.registriesAPI.getRegistriesId(id),
     },
     Mutation: {
-        //addClass: (_, {classes}, {dataSources }) => dataSources.registriesAPI.postClasses(classes),
+        addRegistries: (_, ids, {dataSources }) => dataSources.registriesAPI.postRegistries(ids),
         //updateClass: (_, newData, {dataSources }) => dataSources.registriesAPI.updateClasses(newData),
         //deleteClass:(_, {id}, {dataSources }) => dataSources.registriesAPI.deleteClasses(id),
         

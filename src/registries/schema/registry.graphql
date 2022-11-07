@@ -21,11 +21,11 @@ const registrySchema = gql `
 
     type Query {
         registries: [Registry]
-        registryId(id: ID!): Registry!
+        registriesId(id: ID!): Registry!
     }
 
     type Mutation {
-        addRegistry(registry: RegistryInput): createdMessage!
+        addRegistries(registry: RegistryInput): createdMessage!
         updateRegistry(id: ID!, registry: RegistryInput): updateMessage!
         deleteRegistry(id: ID!): deleteMessage!
     }

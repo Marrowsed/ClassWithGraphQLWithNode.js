@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "Classroom with GraphQL",
     "description": ""
   },
   "host": "localhost:3000",
@@ -13,14 +13,17 @@
   "paths": {
     "/classes": {
       "get": {
-        "description": "Get all the Classes",
+        "tags": [
+          "Class"
+        ],
+        "description": "Call all classes",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Classes Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -28,19 +31,50 @@
         }
       },
       "post": {
-        "description": "POST a new Class",
+        "tags": [
+          "Class"
+        ],
+        "description": "Create one class",
         "parameters": [
           {
-            "name": "description",
-            "description": "Intermediate/Advanced/Beginner",
-            "in": "body",
-            "required":true,
-            "type":"string"
-          }
-        ],
+          "name": "description",
+          "in": "body",
+          "description": "Basic/Advanced/... Class",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "in": "body",
+          "description": "MORNING/EVENING/NIGHT",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "seats",
+          "in": "body",
+          "description": "100",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "initial",
+          "in": "body",
+          "description": "Initial date: YYYY-MM-DD",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "teacher_id",
+          "in": "body",
+          "description": "Teacher ID: 1/2/3",
+          "required": true,
+          "type": "integer"
+        }
+      ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Class Created !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -50,7 +84,10 @@
     },
     "/classes/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Class"
+        ],
+        "description": "Call one class",
         "parameters": [
           {
             "name": "id",
@@ -64,7 +101,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Classes Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -72,6 +109,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Class"
+        ],
         "description": "",
         "parameters": [
           {
@@ -83,10 +123,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Class deleted !"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Classes Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -94,6 +134,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Class"
+        ],
         "description": "",
         "parameters": [
           {
@@ -101,6 +144,41 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "body",
+            "description": "Basic/Advanced/... Class",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "time",
+            "in": "body",
+            "description": "MORNING/EVENING/NIGHT",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "seats",
+            "in": "body",
+            "description": "100",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "initial",
+            "in": "body",
+            "description": "Initial date: YYYY-MM-DD",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "teacher_id",
+            "in": "body",
+            "description": "Teacher ID: 1/2/3",
+            "required": true,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -108,7 +186,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Classes Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -118,7 +196,10 @@
     },
     "/roles": {
       "get": {
-        "description": "",
+        "tags": [
+          "Roles"
+        ],
+        "description": "Get all Roles and search with Query String",
         "parameters": [
           {
             "name": "type",
@@ -131,7 +212,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Roles Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -142,21 +223,18 @@
         "tags": [
           "Roles"
         ],
-        "description": "POST a new Role",
+        "description": "Create a Role",
         "parameters": [
           {
             "name": "type",
             "in": "body",
-            "description": "Role Type",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
+            "type": "string",
+            "description": "STUDENT/TEACHER/DIRECTOR/CEO"
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Role Created !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -166,7 +244,10 @@
     },
     "/roles/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Roles"
+        ],
+        "description": "Get one role",
         "parameters": [
           {
             "name": "id",
@@ -180,7 +261,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Roles Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -188,7 +269,10 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Roles"
+        ],
+        "description": "Delete one role",
         "parameters": [
           {
             "name": "id",
@@ -199,10 +283,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Role Deleted !"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Roles Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -210,13 +294,22 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Roles"
+        ],
+        "description": "Update one role",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "body",
+            "type": "string",
+            "description": "STUDENT/TEACHER/DIRECTOR/CEO"
           }
         ],
         "responses": {
@@ -224,7 +317,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Roles Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -234,14 +327,17 @@
     },
     "/users": {
       "get": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get all Users",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Users Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -249,11 +345,37 @@
         }
       },
       "post": {
+        "tags": [
+          "Users"
+        ],
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "body",
+            "type": "boolean"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "body",
+            "type": "integer",
+            "required": true,
+            "description": "Role ID"
+          }
+        ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "User Created !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -263,7 +385,10 @@
     },
     "/users/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get one User",
         "parameters": [
           {
             "name": "id",
@@ -277,7 +402,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Users Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -285,7 +410,10 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Delete one user",
         "parameters": [
           {
             "name": "id",
@@ -296,10 +424,10 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "User Deleted !"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Users Found !"
           },
           "500": {
             "description": "Internal Server Error"
@@ -307,7 +435,115 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Users"
+        ],
+        "description": "Update one user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "body",
+            "type": "boolean"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "body",
+            "type": "integer",
+            "description": "Role ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No Users Found !"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/registries": {
+      "get": {
+        "tags": [
+          "Registry"
+        ],
+        "description": "Get all Registries",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No Registry Found !"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Registry"
+        ],
+        "description": "Create one Registry",
+        "parameters": [
+          {
+            "name": "student_id",
+            "in": "body",
+            "required": true,
+            "type": "integer",
+            "description": "Student User ID"
+          },
+          {
+            "name": "class_id",
+            "in": "body",
+            "required": true,
+            "type": "integer",
+            "description": "Class ID"
+          },
+          {
+            "name": "status",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "description": "CONFIRMED/CANCELLED"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Registry Created !"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/registries/{id}": {
+      "get": {
+        "tags": [
+          "Registry"
+        ],
+        "description": "Get one Registry",
         "parameters": [
           {
             "name": "id",
@@ -321,7 +557,78 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "No Registry Found !"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Registry"
+        ],
+        "description": "Delete one Registry",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Registry Deleted !"
+          },
+          "404": {
+            "description": "No Registry Found !"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Registry"
+        ],
+        "description": "Update One Registry",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "student_id",
+            "in": "body",
+            "required": true,
+            "type": "integer",
+            "description": "Student User ID"
+          },
+          {
+            "name": "class_id",
+            "in": "body",
+            "required": true,
+            "type": "integer",
+            "description": "Class ID"
+          },
+          {
+            "name": "status",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "description": "CONFIRMED/CANCELLED"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "No Registry Found !"
           },
           "500": {
             "description": "Internal Server Error"

@@ -40,13 +40,13 @@ class UsersAPI extends RESTDataSource {
     return user
   }
 
-   async postUsers(user) {
-    const role = await this.get(`/roles?type=${user.role}`)
-    await this.post('/users', {body: {...user, role: role[0].id}})
+   async postUsers(users) {
+    const role = await this.get(`/roles?type=${users.role}`)
+    await this.post('/users', {body: {...users.user, role: role[0].id}})
     return ({
       ...this.createdMessage,
       user: {
-        ...user,
+        ...users.user,
         role: role[0]
       },
     })

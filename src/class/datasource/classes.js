@@ -39,23 +39,21 @@ class ClassesAPI extends RESTDataSource {
   }
 
    async postClasses(classes) {
-    await this.post('/classes', {body: {...classes, role: role[0].id}})
+    await this.post('/classes', {body: {...classes.class}})
     return ({
       ...this.createdMessage,
       classes: {
-        ...classes,
-        role: role[0]
+        ...classes.class
       },
     })
   }
 
   async updateClasses(newData) {
-    await this.put(`/classes/${newData.id}`, {body: {...newData.classes, role:role[0].id}})
+    await this.put(`/classes/${newData.id}`, {body: {...newData.class}})
     return ({
       ...this.updateMessage,
       classes: {
-        ...newData.classes,
-        role: role[0]
+        ...newData.class
       },
     })
   }
