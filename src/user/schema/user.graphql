@@ -8,6 +8,7 @@ const userSchema = gql `
         active: Boolean!
         email: String
         role: Role!
+        registry: [Registry]
     }
 
     input UserInput {

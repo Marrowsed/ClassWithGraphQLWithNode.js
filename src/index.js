@@ -1,17 +1,12 @@
 const { ApolloServer } = require('apollo-server')
 const { mergeTypeDefs } = require('@graphql-tools/merge')
-const userSchema = require('./user/schema/user.graphql')
-const userResolver = require('./user/resolvers/userResolvers')
-const UsersAPI = require('./user/datasource/user.js')
-
-const classSchema = require('./class/schema/class.graphql')
-const classResolver = require('./class/resolvers/classResolvers')
-const ClassesAPI = require('./class/datasource/classes.js')
+const { userSchema, userResolver, UsersAPI} = require('./user')
+const { classSchema, classResolver, ClassesAPI} = require('./class')
+const { registrySchema, registryResolver, RegistriesAPI} = require('./registries')
 
 
-
-const typeDefs = mergeTypeDefs([userSchema, classSchema])
-const resolvers = [userResolver, classResolver]
+const typeDefs = mergeTypeDefs([userSchema, classSchema, registrySchema])
+const resolvers = [userResolver, classResolver, registryResolver]
 
 const server = new ApolloServer(
     {typeDefs,
@@ -19,7 +14,8 @@ const server = new ApolloServer(
     dataSources: () => {
         return  {
             usersAPI: new UsersAPI(),
-            classesAPI: new ClassesAPI()
+            classesAPI: new ClassesAPI(),
+            registriesAPI: new RegistriesAPI()
         }
     }});
 

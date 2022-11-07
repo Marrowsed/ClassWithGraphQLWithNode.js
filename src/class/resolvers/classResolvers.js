@@ -1,6 +1,6 @@
 const {GraphQLScalarType } = require('graphql')
 
-const userResolver = {
+const classResolver = {
     ClassTime: {
         MORNING: "MORNING",
         EVENING: "EVENING",
@@ -26,4 +26,4 @@ const userResolver = {
 
 }
 
-module.exports = userResolver
+module.exports = classResolver

@@ -9,6 +9,7 @@ const classSchema = gql `
         seats: Int
         initial: DateTime
         teacher_id: User!
+        registry: [Registry]
     }
 
     input ClassInput {
