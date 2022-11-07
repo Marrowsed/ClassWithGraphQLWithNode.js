@@ -1,0 +1,59 @@
+const { gql } = require('apollo-server')
+
+const registrySchema = gql `
+    type Registry {
+        id: ID!
+        student_id: User!
+        class_id: Class!
+        status: StatusType!
+    }
+
+    input RegistryInput {
+        student_id: Int
+        class_id: Int
+        status: StatusType   
+    }
+
+    enum StatusType {
+        CONFIRMED
+        CANCELLED
+    }
+
+    type Query {
+        registries: [Registry]
+        registryId(id: ID!): Registry!
+    }
+
+    type Mutation {
+        addRegistry(registry: RegistryInput): createdMessage!
+        updateRegistry(id: ID!, registry: RegistryInput): updateMessage!
+        deleteRegistry(id: ID!): deleteMessage!
+    }
+
+    interface customMessage {
+        code: Int!
+        message: String!
+    }
+
+    type deleteMessage implements customMessage {
+        code: Int!
+        message: String!
+    }
+
+    type updateMessage implements customMessage {
+        code: Int!
+        message: String!
+        user: User!
+    }
+
+    type createdMessage implements customMessage {
+        code: Int!
+        message: String!
+        user: User!
+    }
+
+
+`
+
+
+module.exports = registrySchema
