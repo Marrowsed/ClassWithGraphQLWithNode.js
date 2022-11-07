@@ -26,8 +26,8 @@ const registrySchema = gql `
 
     type Mutation {
         addRegistries(registry: RegistryInput): createdMessage!
-        updateRegistry(id: ID!, registry: RegistryInput): updateMessage!
-        deleteRegistry(id: ID!): deleteMessage!
+        updateRegistries(id: ID!, registry: RegistryInput): updateMessage!
+        deleteRegistries(id: ID!): deleteMessage!
     }
 
     interface customMessage {

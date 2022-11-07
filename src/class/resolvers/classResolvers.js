@@ -22,6 +22,9 @@ const classResolver = {
         updateClass: (_, newData, {dataSources }) => dataSources.classesAPI.updateClasses(newData),
         deleteClass:(_, {id}, {dataSources }) => dataSources.classesAPI.deleteClasses(id),
         
+    },
+    Class: {
+        registry: (parent, _, {dataSources}) => dataSources.registriesAPI.getRegistryByClass(parent.id)
     }
 
 }

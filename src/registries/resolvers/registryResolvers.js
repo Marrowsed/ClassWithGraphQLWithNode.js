@@ -9,8 +9,8 @@ const registryResolver = {
     },
     Mutation: {
         addRegistries: (_, ids, {dataSources }) => dataSources.registriesAPI.postRegistries(ids),
-        //updateClass: (_, newData, {dataSources }) => dataSources.registriesAPI.updateClasses(newData),
-        //deleteClass:(_, {id}, {dataSources }) => dataSources.registriesAPI.deleteClasses(id),
+        updateRegistries: (_, newData, {dataSources }) => dataSources.registriesAPI.updateRegistries(newData),
+        deleteRegistries:(_, {id}, {dataSources }) => dataSources.registriesAPI.deleteRegistries(id),
         
     }
 

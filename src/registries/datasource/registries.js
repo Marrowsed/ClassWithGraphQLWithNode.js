@@ -48,23 +48,27 @@ class RegistriesAPI extends RESTDataSource {
       },
     })
   }
-      /*
-  async updateClasses(newData) {
-    await this.put(`/classes/${newData.id}`, {body: {...newData.classes, role:role[0].id}})
+      
+  async updateRegistries(newData) {
+    await this.put(`/registries/${newData.id}`, {body: {...newData.registry}})
     return ({
       ...this.updateMessage,
       classes: {
-        ...newData.classes,
-        role: role[0]
+        ...newData.registry
       },
     })
   }
 
-  async deleteClasses(id){
-    await this.delete(`/classes/${id}`)
+  async deleteRegistries(id){
+    await this.delete(`/registries/${id}`)
     return this.deleteMessage
   }
-*/
+
+  async getRegistryByClass(classId) {
+    null
+  }
+
+
 }
 
 module.exports = RegistriesAPI

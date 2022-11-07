@@ -635,6 +635,32 @@
           }
         }
       }
+    },
+    "/registries/{id}/class": {
+      "get": {
+        "tags":["Registry"],
+        "description": "Get one Registry by Class",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Class ID in Registry",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }

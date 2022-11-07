@@ -78,6 +78,22 @@ class RegistriesController {
             res.status(500).json("Couldn't Update ! - ", error.message)
         }
     }
+
+    static getRegistriesByClass = async (req, res) => {
+        const { id } = req.params
+        try {
+            const regis = await database.Registry.findAll({
+                where: {
+                    class_id: Number(id)
+                }
+            })
+            regis === null ?
+            res.status(404).send({message: 'Registries not found !'})
+            : res.status(200).json(regis)
+        } catch (error) {
+            res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = RegistriesController
