@@ -59,13 +59,31 @@ class RegistriesAPI extends RESTDataSource {
     })
   }
 
+  async changeStatusRegistries(data) {
+    console.log(data.id)
+    await this.put(`/registries/${data.id}`, {body: {"status": data.status}})
+    const regis = await this.get(`/registries/${data.id}`)
+    return ({
+      ...this.updateMessage,
+      registry: {
+        regis
+      }
+    })
+  }
+
   async deleteRegistries(id){
     await this.delete(`/registries/${id}`)
     return this.deleteMessage
   }
 
-  async getRegistryByClass(classId) {
-    null
+  async getRegistriesByClass(classId) {
+    const regis = await this.get(`/registries/class/${classId}`)
+    return regis
+  }
+
+  async getRegistriesByUser(studentId) {
+    const regis = await this.get(`/registries/user/${studentId}`)
+    return regis
   }
 
 

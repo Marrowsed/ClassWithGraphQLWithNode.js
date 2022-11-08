@@ -24,7 +24,8 @@ const classResolver = {
         
     },
     Class: {
-        registry: (parent, _, {dataSources}) => dataSources.registriesAPI.getRegistryByClass(parent.id)
+        registry: (parent, _, {dataSources}) => dataSources.registriesAPI.getRegistriesByClass(parent.id),
+        teacher_id: (parent, _, {dataSources}) => dataSources.usersAPI.getUserID(parent.teacher_id)
     }
 
 }

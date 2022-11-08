@@ -28,6 +28,7 @@ const registrySchema = gql `
         addRegistries(registry: RegistryInput): createdMessage!
         updateRegistries(id: ID!, registry: RegistryInput): updateMessage!
         deleteRegistries(id: ID!): deleteMessage!
+        changeStatusRegistries(id: ID!, status: StatusType): updateMessage!
     }
 
     interface customMessage {

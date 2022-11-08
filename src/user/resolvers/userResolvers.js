@@ -22,6 +22,9 @@ const userResolver = {
         addUser: (root, {user}, {dataSources}) => dataSources.usersAPI.postUsers(user),
         updateUser: (root, newData, {dataSources}) => dataSources.usersAPI.updateUsers(newData),
         deleteUser: (root, {id}, {dataSources}) => dataSources.usersAPI.deleteUsers(id)
+    },
+    User: {
+        registry: (parent, _, {dataSources}) => dataSources.registriesAPI.getRegistriesByUser(parent.id)
     }
 
 }

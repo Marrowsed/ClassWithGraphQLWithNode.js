@@ -11,7 +11,11 @@ const registryResolver = {
         addRegistries: (_, ids, {dataSources }) => dataSources.registriesAPI.postRegistries(ids),
         updateRegistries: (_, newData, {dataSources }) => dataSources.registriesAPI.updateRegistries(newData),
         deleteRegistries:(_, {id}, {dataSources }) => dataSources.registriesAPI.deleteRegistries(id),
-        
+        changeStatusRegistries:(_, data, {dataSources}) => dataSources.registriesAPI.cancelRegistries(data)
+    },
+    Registry: {
+        student_id: (parent, _, {dataSources}) => dataSources.usersAPI.getUsersId(parent.student_id),
+        class_id: (parent, _, {dataSources}) => dataSources.classesAPI.getClassesId(parent.class_id)
     }
 
 }
