@@ -72,7 +72,7 @@ class RegistriesController {
                 }
             })
             regis === null ?
-            res.status(404).send({message: 'Class not found !'})
+            res.status(404).send({message: 'Registry not found !'})
             : res.status(200).json(regis)
         } catch (error) {
             res.status(500).json("Couldn't Update ! - ", error.message)
@@ -80,11 +80,27 @@ class RegistriesController {
     }
 
     static getRegistriesByClass = async (req, res) => {
-        const { id } = req.params
+        const { classid } = req.params
         try {
             const regis = await database.Registry.findAll({
                 where: {
-                    class_id: Number(id)
+                    class_id: Number(classid)
+                }
+            })
+            regis === null ?
+            res.status(404).send({message: 'Registries not found !'})
+            : res.status(200).json(regis)
+        } catch (error) {
+            res.status(500).json(error.message)
+        }
+    }
+
+    static getRegistriesByUser = async (req, res) => {
+        const { userid } = req.params
+        try {
+            const regis = await database.Registry.findAll({
+                where: {
+                    student_id: Number(userid)
                 }
             })
             regis === null ?

@@ -636,15 +636,41 @@
         }
       }
     },
-    "/registries/{id}/class": {
+    "/registries/class/{classid}": {
       "get": {
         "tags":["Registry"],
-        "description": "Get one Registry by Class",
+        "description": "Get all Registry by Class",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "description": "Class ID in Registry",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/registries/users/{userid}": {
+      "get": {
+        "tags":["Registry"],
+        "description": "Get all Registry by User",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User ID in Registry",
             "required": true,
             "type": "string"
           }
