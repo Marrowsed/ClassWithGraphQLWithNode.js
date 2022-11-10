@@ -15,7 +15,9 @@ const registryResolver = {
     },
     Registry: {
         student_id: (parent, _, {dataSources}) => dataSources.usersAPI.getUsersId(parent.student_id),
-        class_id: (parent, _, {dataSources}) => dataSources.classesAPI.getClassesId(parent.class_id)
+        /*NOT USING DATALOADER
+        class_id: (parent, _, {dataSources}) => dataSources.classesAPI.getClassesId(parent.class_id) */
+        class_id: (parent, _, {dataSources}) => dataSources.classesAPI.getCalledClasses.load(parent.class_id)
     }
 
 }

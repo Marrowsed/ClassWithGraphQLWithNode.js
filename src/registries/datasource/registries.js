@@ -1,4 +1,5 @@
 const {RESTDataSource} = require('@apollo/datasource-rest')
+const DataLoader = require('dataloader')
 
 class RegistriesAPI extends RESTDataSource {
     constructor() {
@@ -76,13 +77,24 @@ class RegistriesAPI extends RESTDataSource {
     return this.deleteMessage
   }
 
+  registryUserLoader = new DataLoader(this.getRegistriesByUser.bind(this))
+  registryClassLoader = new DataLoader(this.getRegistriesByClass.bind(this))
+
   async getRegistriesByClass(classId) {
-    const regis = await this.get(`/registries/class/${classId}`)
+    let regis = await Promise.all(classId.map(async (id) => {
+      return await this.get(`/registries/class/${id}`)
+    }))
     return regis
   }
 
   async getRegistriesByUser(studentId) {
-    const regis = await this.get(`/registries/user/${studentId}`)
+    let regis = await Promise.all(studentId.map(async (id) => {
+      return await this.get(`/registries/users/${id}`)
+    }))
+    /* Promises Array
+    const regis = studentId.map( async (id) => {
+      return await this.get(`/registries/users/${id}`)
+    })*/
     return regis
   }
 

@@ -1,4 +1,5 @@
 const {RESTDataSource} = require('@apollo/datasource-rest')
+const DataLoader = require('dataloader')
 
 class ClassesAPI extends RESTDataSource {
     constructor() {
@@ -63,15 +64,15 @@ class ClassesAPI extends RESTDataSource {
     return this.deleteMessage
   }
 
-  /*async getMostViewedMovies(limit = '10') {
-    const data = await this.get('movies', {
-      params: {
-        per_page: limit,
-        order_by: 'most_viewed',
-      },
-    }); 
-    return data.results;
-  }*/
+ getCalledClasses = new DataLoader(async (classId) => {
+  let classes = await Promise.all(
+    classId
+    .map(async (id) => {
+      return this.get(`/classes/${id}`)
+    })
+  )
+  return classes
+ })
 }
 
 module.exports = ClassesAPI
