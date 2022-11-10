@@ -32,7 +32,7 @@ npm run api
 ```
 <p>It'll install all the dependencies from the projects and run the server in <a>http://localhost:3000</a>
 
-<h3>Enter <a>http://localhost:3000/doc</a> for the Documentation !</h3>
+<a>http://localhost:3000/doc</a> for the Documentation !
 
 <h3>PostgreSQL</h3>
 <p>The routes are made, you just need to prepare the data !</p>
