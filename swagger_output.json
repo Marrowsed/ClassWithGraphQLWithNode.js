@@ -17,7 +17,20 @@
           "Class"
         ],
         "description": "Call all classes",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Used for pagination, default is 1",
+            "type": "int"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Used for pagination, default is 3 for page",
+            "type": "int"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -331,7 +344,20 @@
           "Users"
         ],
         "description": "Get all Users",
-        "parameters": [],
+        "parameters": [
+          {
+          "name": "page",
+          "in": "query",
+          "description": "Used for pagination, default is 1",
+          "type": "int"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "description": "Used for pagination, default is 3 for page",
+          "type": "int"
+        }
+      ],
         "responses": {
           "200": {
             "description": "OK"

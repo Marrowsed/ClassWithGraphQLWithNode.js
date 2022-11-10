@@ -2,14 +2,33 @@ const database = require('../models')
 const Sequelize = require('sequelize')
 const Op = Sequelize.Op
 
+
+//Pagination Functions
+const getPagination = (page, size) => {
+    const limit = size ? +size : 3;
+    const offset = page >= 2 ? ((page * limit) - limit): 0;
+    return { limit, offset };
+  };
+
+const getPaginationData = (data, page, limit) => {
+    const { count: totalItems, rows: classes } = data;
+    const currentPage = page ? +page : 1;
+    const totalPages = Math.ceil(totalItems / limit);
+  
+    return { totalItems, classes, totalPages, currentPage };
+  };
+
 class ClassesController {
 
     static getClasses = async (req, res) => {
+        const {page, size} = req.query
+        const {limit, offset} = getPagination(page, size)
         try {
-            const classes = await database.Class.findAll()
-            classes.length === 0 ?
+            const classes = await database.Class.findAndCountAll({limit, offset})
+            const response = getPaginationData(classes, page, limit)
+            response.classes.length === 0 ?
             res.status(404).send({message: 'No Class to show !'})
-            : res.status(200).json(classes)
+            : res.status(200).json(response)
         } catch (error) {
             return res.status(500).json(error.message)
         }

@@ -14,7 +14,7 @@ const classResolver = {
         parseLiteral: (ast) => new Date(ast.value)
     }),
     Query: {
-        classes: (_, __, {dataSources }) => dataSources.classesAPI.getClasses(),
+        classes: (_, args, {dataSources }) => dataSources.classesAPI.getClasses(args),
         classesId: (_, {id}, {dataSources }) => dataSources.classesAPI.getClassesId(id),
     },
     Mutation: {

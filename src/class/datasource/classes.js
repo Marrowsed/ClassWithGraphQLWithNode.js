@@ -23,9 +23,13 @@ class ClassesAPI extends RESTDataSource {
         }
     }
 
-  async getClasses() {
-    const classes = await this.get(`/classes`);
-    return classes.map(async classes => ({
+  async getClasses({page = 1, size = 0}) {
+    //PAGINATION
+    const query = size
+    ? `/classes?page=${page}&size=${size}`
+    :`/classes?page=${page}`
+    const classes = await this.get(query);
+    return classes.classes.map(async classes => ({
       id: classes.id,
       description: classes.description,
       time: classes.time,

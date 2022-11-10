@@ -31,7 +31,8 @@ const userSchema = gql `
     }
 
     type Query {
-        users: [User]
+         """ page and limit for pagination """ 
+        users(page: Int, size: Int): [User] 
         userId(id: ID!): User!
     }
 

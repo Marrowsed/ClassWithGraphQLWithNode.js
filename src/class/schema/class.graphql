@@ -27,7 +27,7 @@ const classSchema = gql `
     }
 
     type Query {
-        classes: [Class]
+        classes(page: Int, size: Int): [Class]
         classesId(id: ID!): Class
     }
 
